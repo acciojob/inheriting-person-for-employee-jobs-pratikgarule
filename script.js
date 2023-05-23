@@ -1,8 +1,34 @@
-// complete this js code
-function Person(name, age) {}
+class Rectangle {
+  constructor(width, height) {
+    this._width = width;
+    this._height = height;
+  }
 
-function Employee(name, age, jobTitle) {}
+  get width() {
+    return this._width;
+  }
 
-// Do not change code below this line
-window.Person = Person;
-window.Employee = Employee;
+  get height() {
+    return this._height;
+  }
+
+  getArea() {
+    return this._width * this._height;
+  }
+}
+
+// Square class
+class Square extends Rectangle {
+  constructor(side) {
+    super(side, side);
+    this._side = side;
+  }
+
+  getPerimeter() {
+    return 4 * this._side;
+  }
+}
+
+// Do not change the code below this line
+window.Rectangle = Rectangle;
+window.Square = Square;
