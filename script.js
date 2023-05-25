@@ -1,34 +1,26 @@
-class Rectangle {
-  constructor(width, height) {
-    this._width = width;
-    this._height = height;
-  }
+// complete this js code
+// complete this js code
+function Person(name, age) {
+	this.name=name;
+	this.age=age;
+}
+Person.prototype.greet=function(){
+	return "Hello, my name is " + this.name +", I am "+this.age+" years old.";
+};
+// var p=new Person('areeb',23);
+// console.log(p);
+// console.log(Object.getPrototypeOf(p));
 
-  get width() {
-    return this._width;
-  }
-
-  getheight() {
-    return this._height;
-  }
-
-  getArea() {
-    return this._width * this._height;
-  }
+function Employee(name, age, jobTitle) {
+	Person.call(this,name,age);
+	this.jobTitle=jobTitle;
 }
 
-// Square class
-class Square extends Rectangle {
-  constructor(side) {
-    super(side, side);
-    this._side = side;
-  }
+Employee.prototype=Object.create(Person.prototype);
+Employee.prototype.jobGreet=function(){
+	return `Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`
+};
 
-  getPerimeter() {
-    return 4 * this._side;
-  }
-}
-
-// Do not change the code below this line
-window.Rectangle = Rectangle;
-window.Square = Square;
+// Do not change code below this line
+window.Person = Person;
+window.Employee = Employee;
